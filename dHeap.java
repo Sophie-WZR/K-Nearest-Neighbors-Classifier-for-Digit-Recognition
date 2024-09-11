@@ -1,8 +1,3 @@
-/*
- * Name: Sophie Wang
- * PID:  A17370050
- */
-
 import java.sql.Array;
 import java.util.Arrays;
 import java.util.NoSuchElementException;
