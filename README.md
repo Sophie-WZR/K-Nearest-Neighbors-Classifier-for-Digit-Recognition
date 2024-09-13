@@ -13,12 +13,6 @@ The KNN algorithm is used to classify images based on their proximity to a set o
 - **Euclidean Distance**: Computes the distance between test and training images using Euclidean distance.
 - **MNIST Dataset**: Supports up to 60,000 training images and 10,000 test images from the MNIST dataset.
 
-## Accuracy
-
-- **K = 3**: Achieved an accuracy of 98.67% on 1,000 test images.
-- **K = 4**: Achieved an accuracy of 98.67%.
-- **K = 5**: Achieved an accuracy of 98.67%.
-
 ## Code Structure
 
 ### Files
