@@ -1,41 +1,51 @@
-# K-Nearest Neighbors Classifier for Digit Recognition
+# K-Nearest-Neighbors Classifier for Digit Recognition
 
-This project implements a K-Nearest Neighbors (KNN) classifier using a custom priority queue for recognizing handwritten digits from the MNIST dataset. The KNN algorithm finds the closest training images to a given test image and predicts its label based on the labels of the nearest neighbors.
+This project implements a K-Nearest Neighbors (KNN) classifier using a custom priority queue and a d-ary heap to classify handwritten digits from the MNIST dataset.
+
+## Overview
+
+The KNN algorithm is used to classify images based on their proximity to a set of labeled training images. This implementation utilizes a 4-ary min-heap for efficient retrieval of the nearest neighbors and calculates Euclidean distances between test and training images. The most common label among the closest neighbors is then predicted as the class of the test image.
 
 ## Features
 
-- **Dataset**: MNIST dataset with 60,000 training images and 10,000 test images.
-- **Algorithm**: K-Nearest Neighbors (KNN) Classifier.
-- **Data Structures**: Custom priority queue implemented using a 4-ary min-heap for efficient retrieval of nearest neighbors.
-- **Distance Metric**: Euclidean distance between images.
-- **Accuracy**: Achieves an accuracy of 98.67% on 1,000 test images.
+- **Priority Queue**: Implements a priority queue using a 4-ary min-heap to efficiently retrieve the nearest neighbors.
+- **K-Nearest Neighbors**: Supports KNN classification with customizable K-values (K=3, 4, 5).
+- **Euclidean Distance**: Computes the distance between test and training images using Euclidean distance.
+- **MNIST Dataset**: Supports up to 60,000 training images and 10,000 test images from the MNIST dataset.
 
-## Files in the Project
+## Accuracy
 
-- `MNIST.java`: The main class that implements the KNN classifier and processes the MNIST dataset.
-- `MyPriorityQueue.java`: A custom priority queue class implemented with a 4-ary min-heap for efficient neighbor retrieval.
-- `dHeap.java`: The implementation of a d-ary heap used by the priority queue for managing nearest neighbors.
-- `HeapInterface.java`: The interface for the heap implementation.
-- `dHeapTest.java`: The test file to verify the correctness of the heap implementation.
-- `ImageRenderer.java`: A utility to visualize the results using the MNIST dataset.
-- `stdlib.jar`: A required library for graphical support.
+- **K = 3**: Achieved an accuracy of 98.67% on 1,000 test images.
+- **K = 4**: Achieved an accuracy of 98.67%.
+- **K = 5**: Achieved an accuracy of 98.67%.
 
-## How It Works
+## Code Structure
 
-1. **Data Loading**:
-   The MNIST dataset is loaded from `.gz` files into arrays representing the images and labels. Each image is represented as a 1D array of size 784 (28x28 pixels).
+### Files
 
-2. **KNN Algorithm**:
-   - For each test image, the Euclidean distance is calculated between the test image and all training images.
-   - A priority queue (min-heap) is used to efficiently find the K closest neighbors.
-   - The label of the test image is predicted by taking the most frequent label among the nearest neighbors.
+- `HeapInterface.java`: Defines the interface for the heap used in the priority queue.
+- `MyPriorityQueue.java`: Implements the priority queue using a 4-ary min-heap.
+- `MNIST.java`: The main class that implements the KNN algorithm and handles loading the MNIST dataset.
+- `dHeap.java`: Implements the d-ary heap for efficient priority queue operations.
+- `ImageRenderer.java`: Renders MNIST images for visualization.
+- `dHeapTest.java`: Unit tests for the d-heap implementation.
+- `stdlib.jar`: External library used for graphical programming (StdDraw).
 
-3. **Accuracy Calculation**:
-   The accuracy of the classifier is calculated by comparing the predicted labels with the actual labels of the test images.
+### Key Methods
 
-## Installation
+- **`getClosestMatches()`**: Finds the K closest matches from the training dataset for a given test image.
+- **`predict()`**: Predicts the label of a test image based on the most common label among the K nearest neighbors.
+- **`totalDist()`**: Calculates the Euclidean distance between two images.
+- **`loadData()`**: Loads the MNIST dataset from files.
+
+## How to Run
 
 1. Clone the repository:
    ```bash
    git clone https://github.com/Sophie-WZR/K-Nearest-Neighbors-Classifier-for-Digit-Recognition.git
-   cd K-Nearest-Neighbors-Classifier-for-Digit-Recognition
+2. Download the MNIST dataset and place it in the `data/` directory.
+
+3. Compile and run the `MNIST.java` file:
+   ```bash
+   javac MNIST.java
+   java MNIST
