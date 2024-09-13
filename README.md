@@ -46,6 +46,4 @@ The KNN algorithm is used to classify images based on their proximity to a set o
 2. Download the MNIST dataset and place it in the `data/` directory.
 
 3. Compile and run the `MNIST.java` file:
-   ```bash
-   javac MNIST.java
-   java MNIST
+
