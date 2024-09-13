@@ -1,8 +1,3 @@
-/*
- * Name: Sophie Wang
- * PID:  A17370050
- */
-
 /**
  * Priority Queue Implementation using dHeap.
  *
